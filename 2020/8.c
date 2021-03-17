@@ -15,7 +15,7 @@ int main()
 {
 	int count;
 	int data_count,i;
-	scanf("%d",&count);
+	scanf("%d%",&count);
 	while(count--)
 	{
 		scanf("%d",&data_count);

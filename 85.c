@@ -12,6 +12,7 @@ int main()
 		j++;
 		if(j == n)
 		{
+			//第i行最小值的列数放入最后一行第i列 
 			array[m][i] = min_i;
 			i++;
 			min_i = j = 0;
@@ -19,10 +20,13 @@ int main()
 			{
 				for(i = 0;i < m;i++)
 				{
+					//取第i行最小值的列数
 					min_i = array[m][i];
+					//取第i行最小值
 					min = array[i][min_i];
 					for(j = 0;j < m;j++)
 					{
+						//取判断是否为第min_i列最大值 
 						if (min < array[j][min_i])
 							break;
 					}

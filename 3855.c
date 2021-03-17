@@ -1,48 +1,75 @@
 #include<stdio.h>
 #include<ctype.h>
+#include<string.h>
 int GetOp(char ch)
 {
 	if(ch == '-')return -1;
 	else if(ch == '+')return 1;
 } 
-
+ 
 int main()
 {
-	int num1,count,num2,op,sign1,sign2;
-	char ch;
-	int set = 0;
-	scanf("%d%*c",&count);
+	int sum,count,num,sign,i,len;
+	//char ch;
+	char ch[1000];
+	scanf("%d",&count);
 	while(count--)
 	{
-		num1 = num2 = set = 0;
-		op = sign1 = sign2 = 1;
-		while((ch = getchar()) != '\n')
+		i = num = sum = 0;
+		sign = 1;
+		scanf("%s",&ch);
+        len = strlen(ch);
+		while(i < len)
 		{
-			if(isdigit(ch))
+			if(isdigit(ch[i]))
 			{
-				if(set == 0)set = 1;
-				else if(set == 2)
-				{
-					num2 = num2 * 10 + ch - '0';
-					continue;
-				}
-				num1 = num1 * 10 + ch - '0';
+				num = num * 10 + ch[i] - '0';
 			}
-			else if(set == 0)
+			else
 			{
-				sign1 = GetOp(ch);
-				set = 1;
+				sum = sum + sign * num;
+				num = 0;
+				sign = GetOp(ch[i]);
 			}
-			else if(set == 1)
-			{
-				op = GetOp(ch);
-				set = 2;
-			}
-			else if(set == 2)
-				sign2 = GetOp(ch);
+			i++;
 		}
-		printf("%d",sign1 * num1 + sign2 * num2 * op);
-		if(count != 0)printf("\n");
+		sum = sum + sign * num;
+		printf("%d\n",sum);
 	}
 	return 0;
 }
+//#include<stdio.h>
+//#include<ctype.h>
+//int GetOp(char ch)
+//{
+//	if(ch == '-')return -1;
+//	else if(ch == '+')return 1;
+//} 
+//
+//int main()
+//{
+//	int sum,count,num,sign;
+//	char ch;
+//	scanf("%d%",&count);
+//	while(count--)
+//	{
+//		num = sum = 0;
+//		sign = 1;
+//		while((ch = getchar()) != '\n' && ch != '\0')
+//		{
+//			if(isdigit(ch))
+//			{
+//				num = num * 10 + ch - '0';
+//			}
+//			else
+//			{
+//				sum = sum + sign * num;
+//				num = 0;
+//				sign = GetOp(ch);
+//			}
+//		}
+//		sum = sum + sign * num;
+//		printf("%d\n",sum);
+//	}
+//	return 0;
+//}
