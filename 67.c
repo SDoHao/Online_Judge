@@ -1,29 +1,36 @@
 #include<stdio.h>
-int main(){
-	double x1,y1,x2,y2,x3,y3,x4,y4;
-    double k1,k2;
-    while(scanf("%lf %lf %lf %lf %lf %lf %lf %lf",&x1,&y1,&x2,&y2,&x3,&y3,&x4,&y4)!=EOF)
+#include<math.h>
+int main()
+{
+	int line[8];
+	int i = 0;
+	float k1,k2;
+    while(scanf("%d",&line[i++]) != EOF)
 	{
-		
-		k1=(y2-y1)/(x2-x1);
-		k2=(y4-y3)/(x4-x3);
-		if(x1!=x2&&x3!=x4)//两线都不竖直 
+		if(i >= 8)
 		{
-			if(k1==k2)//斜率相等 
-			  printf("No\n"); 
+			if(line[0] == line[2] || line[4] == line[6])
+				if(line[4] == line[6] && line[0] == line[2])
+					if(line[0] == line[4])
+						printf("Yes\n");
+					else
+						printf("No\n");
+				else
+					printf("Yes\n");
 			else
-			  printf("Yes\n");
-		} 
-		else if(x1==x2&&x3==x4) //两线都竖直 
-		{
-			
-			if(x1==x3)
-			 printf("Yes\n");
-			else
-			 printf("No\n");
+			{
+				k1 = (line[3] - line[1]) * 1.0 / (line[2] - line[0]);
+				k2 = (line[7] - line[5]) * 1.0 / (line[6] - line[4]);
+				if(fabs(k1 - k2) < 1e-3)
+					if(fabs((line[1] - k1 * line[0]) - (line[5] - k2 * line[4])) < 1e-3)
+						printf("Yes\n");
+					else
+						printf("No\n");
+				else
+					printf("Yes\n");
+			}
+			i = 0;
 		}
-		else
-		   printf("Yes\n");
 	}
 	return 0;
 }
