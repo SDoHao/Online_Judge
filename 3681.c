@@ -9,7 +9,7 @@ struct phone
 
 int cmp(const void * a,const void * b)
 {
-	return (*(struct phone *)b).rate > ((struct phone *)a)->rate;
+	return (*(struct phone *)b).rate > ((struct phone *)a)->rate ? 1:-1;
 }
 
 int main()

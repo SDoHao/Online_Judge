@@ -10,7 +10,6 @@ int GetOp(char ch)
 int main()
 {
 	int sum,count,num,sign,i,len;
-	//char ch;
 	char ch[1000];
 	scanf("%d",&count);
 	while(count--)
