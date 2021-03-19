@@ -8,7 +8,7 @@ int main()
 		tree[i] = 1;
 	while(scanf("%d %d",&a,&b) != EOF)
 	{
-		for(i = a;i <= b;i++)
+		for(i = a - 1;i < b;i++)
 			tree[i] = 0;	
 	}
 	for(i = 0;i < n;i++)
