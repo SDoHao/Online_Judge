@@ -1,9 +1,9 @@
 #include<stdio.h>
 int main()
 {
-	long long num,product;
+	long num,product;
 	int i;
-	while (scanf("%lld",&num) != EOF)
+	while (scanf("%ld",&num) != EOF)
 	{
 		i = 1;
 		product = num * num - num;
@@ -13,9 +13,9 @@ int main()
 			num = num  / 10;
 		}
 		if (product % i == 0)
-			printf("YES\n");
+			printf("Yes\n");
 		else
-			printf("NO\n");
+			printf("No\n");
 	}
 	return 0;	
 }

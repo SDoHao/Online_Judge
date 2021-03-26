@@ -8,11 +8,10 @@ int main()
 {
 	int EveryMonthDays[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
 	int year,month,day,alldays,i;
-	year = month = day = 1;
 	while(1)
 	{
 		scanf("%d %d %d",&year,&month,&day);
-		if(year == 0 && month == 0 && day == 0)
+		if(year == 0 || month == 0 || day == 0)
 			break;
 		alldays = day - 1;
 		i = 1964;

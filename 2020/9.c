@@ -6,10 +6,7 @@ int main()
 	while(scanf("%d",&n) != EOF)
 	{
 		if(n == 0)
-		{
-			printf("0\n");
-			continue;
-		}
+			break;
 		else if(n > 2)
 			for(;n > 2;n--)
 			{

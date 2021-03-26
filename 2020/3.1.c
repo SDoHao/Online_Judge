@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<math.h>
-const int prime[25] = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
+int prime[25] = {2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97};
 int CountPrime(int n,int cp[])
 {
 	int i,count = 0;
@@ -29,11 +29,11 @@ int CountPrime(int n,int cp[])
 }
 int main()
 {
-	int n,i,k,max = 24,temp;
+	int n,i,k,max,temp;
 	int cprime[25];
 	while(scanf("%d",&n) != EOF)
 	{
-		for(k = 0;k <= max;k++)
+		for(k = 0;k <= 24;k++)
 		cprime[k] = 0;
 		max = 0;
 		for(i = 2;i <= n;i++)
@@ -48,3 +48,4 @@ int main()
 	}
     return 0;
 }
+
